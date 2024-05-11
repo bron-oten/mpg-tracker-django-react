@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
@@ -28,6 +28,14 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(./assets/CarImage1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(500px);
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -35,9 +43,32 @@ h1 {
   line-height: 1.1;
 }
 
+li{
+  list-style: none;
+  font-size: 2em;
+  text-align: center;
+  border: 2px solid #646cff;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 15px;
+  display: inline-block;background-color: slategray;
+}
+
+.card{
+  border: 1px solid hsl(0, 0%, 80%);
+  background-color: slategrey;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+  display: inline-block;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  margin: 10px;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
