@@ -1,6 +1,10 @@
+import AppBar from "../Components/AppBar";
+
 const Contact = () => {
     return(
-      <h1>This is the Contact Page</h1>
+      <>
+      <AppBar />
+      </>
     ) ;
   };
   

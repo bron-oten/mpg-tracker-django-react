@@ -1,52 +1,12 @@
-// import React, { useState, useEffect } from "react";
 
-// const Home = () => {
-//   const [miles, setMiles] = useState("");
-//   const [gallons, setGallons] = useState("");
-//   const [mpg, setMpg] = useState("")
+import React, { useState } from "react";
+import AppBar from "../Components/AppBar";
 
-//   function handleMileChange(event) {
-//     setMiles(event.target.value)
-//   }
-//   function handleGallonChange(event) {
-//     setGallons(event.target.value)
-//   }
-
-//   function calculateMiles(){
-//     let mpg = (miles / gallons) 
-//   };
-
-
-//     return <div className="card">
-//               <h1>Miles Per Gallon Tracker</h1>
-//               <label>
-//                 Total Miles Driven:
-//               <input 
-//               value={miles} 
-//               id="mileage" 
-//               onChange={handleMileChange}
-//               type="number" />
-//               </label>
-//               <p>Miles: {miles}</p>
-//               <input value={gallons} id="gallons" onChange={handleGallonChange} type="number" />
-//               <p>Gallons: {gallons}</p>
-
-//               <p>Miles Per Gallon: {calculateMiles} </p>
-//               <button onClick={calculateMiles} className="button">Calculate</button>
-//               <button className="button">Save</button>
-//               <button className="button">Delete</button>
-//           </div>;
-//   };
-
-  
-//   export default Home;
-
-  import React, { useState } from 'react';
 
 function MpgCalculator() {
-  const [totalMiles, setTotalMiles] = useState('');
-  const [totalGallons, setTotalGallons] = useState('');
-  const [mpg, setMpg] = useState('');
+  const [totalMiles, setTotalMiles] = useState("");
+  const [totalGallons, setTotalGallons] = useState("");
+  const [mpg, setMpg] = useState("");
 
   const calculateMpg = () => {
     const miles = parseFloat(totalMiles);
@@ -56,35 +16,44 @@ function MpgCalculator() {
       const calculatedMpg = miles / gallons;
       setMpg(calculatedMpg.toFixed(2));
     } else {
-      setMpg('');
+      setMpg("");
     }
   };
 
   return (
-    <div className='card'>
-      <h2>MPG Calculator</h2>
-      <label>
+    <>
+    <AppBar />
+    <div className='flex flex-col max-w-sm p-6 mx-auto my-36 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+      <h2 className='text-xl font-bold my-2 text-gray-900 dark:text-white'>MPG Calculator</h2>
+      <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
         Total Miles Driven:
         <input
+          className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
+          placeholder="Miles Driven"
           type="number"
           value={totalMiles}
           onChange={(e) => setTotalMiles(e.target.value)}
         />
       </label>
       <br />
-      <label>
+      <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
         Total Gallons Consumed:
-        <input
+        <input 
+          className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
+          placeholder="Gallons Consumed"
           type="number"
           value={totalGallons}
           onChange={(e) => setTotalGallons(e.target.value)}
         />
       </label>
       <br />
-      <button onClick={calculateMpg}>Calculate MPG</button>
+      <button 
+      className='text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
+      onClick={calculateMpg}>Calculate MPG</button>
       <br />
-      {mpg && <p>MPG: {mpg}</p>}
-    </div>
+      {mpg && <p className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>MPG: {mpg}</p>}
+      </div>
+    </> 
   );
 }
 
