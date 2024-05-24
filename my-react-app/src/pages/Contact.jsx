@@ -1,11 +1,22 @@
-import AppBar from "../Components/AppBar";
+import React, { useState } from "react";
+import InputForm from "../Components/InputForm";
+import MPGDisplay from "../Components/MPGDisplay";
+import HistoryTest from "../Components/HistoryTest";
 
-const Contact = () => {
-    return(
-      <>
-      <AppBar />
-      </>
-    ) ;
+const AppTest = () => {
+  const [entries, setEntries] = useState([]);
+
+  const addEntry = (entry) => {
+    setEntries([...entries, entry]);
   };
-  
-  export default Contact;
+
+  return (
+    <div>
+      <InputForm addEntry={addEntry} />
+      <MPGDisplay entries={entries} />
+      <HistoryTest entries={entries} />
+    </div>
+  );
+};
+
+export default AppTest;
