@@ -6,6 +6,8 @@ import History from "./pages/History";
 // import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import AppTest from "./pages/Contact";
+import DeleteEntry from "./Components/DeleteEntry";
+import CreateEntry from "./Components/CreateEntry";
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="history" element={<History />} />
           <Route path="contact" element={<AppTest />} />
+          <Route path="/mpg/delete/:id" element={<DeleteEntry />} />
+          <Route path="/mpg/create" element={<CreateEntry />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
