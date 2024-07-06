@@ -1,8 +1,9 @@
 import React from 'react'
+import AppBar from '../Components/AppBar'
 
 const History = () => {
   return (
-    <div>History</div>
+    <div><AppBar/></div>
   )
 }
 

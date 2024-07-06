@@ -32,20 +32,28 @@ const CreateEntry = () => {
       gallons,
       mpg,
     };
-    console.log(data)
+    console.log("Data being sent", data)
     setLoading(true);
     axios
       .post("http://localhost:5556/mpg", data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Entry Created Successfully", { variant: "success" });
-        navigate("/mpg");
+        navigate("/");
       })
       .catch((error) => {
         setLoading(false);
         // alert('An Error Happened. Please Check Console');
         enqueueSnackbar("Error", { variant: "error" });
-        console.log(error);
+        if (error.response) {
+            console.error("Error response data:", error.response.data);
+            console.error("Error response status:", error.response.status);
+            console.error("Error response headers:", error.response.headers);
+          } else if (error.request) {
+            console.error("Error request:", error.request);
+          } else {
+            console.error("Error message:", error.message);
+          }
       });
   };
 
@@ -73,7 +81,7 @@ const CreateEntry = () => {
             Miles:
             <input
               type="number"
-              placeholder="Miles Traveled"
+              placeholder="Miles Driven"
               value={miles}
               onChange={(e) => setMiles(e.target.value)}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
